@@ -1,2 +1,3 @@
-# voice-opti-prompter
-Transcription form audio to text for prompts - automatic pipeline to optimise and structure it then outputs optimised result.
+# VoxPrompt
+
+Voice-to-optimised-prompt pipeline. Speak → Transcribe → Optimise → Copy.
