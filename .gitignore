@@ -9,3 +9,7 @@ build/
 .idea/
 .vscode/
 *.log
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

@@ -2,6 +2,13 @@
 
 import os
 
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv()  # read a local .env file if present (see .env.example)
+except ImportError:
+    pass  # python-dotenv is optional; plain environment variables still work
+
 # Audio
 SAMPLE_RATE = 16000
 VAD_THRESHOLD = 0.5
@@ -9,13 +16,13 @@ END_OF_SPEECH_TIMEOUT = 1.5  # seconds of silence to stop recording
 MAX_RECORDING_DURATION = 120  # seconds
 
 # Transcription
-WHISPER_MODEL = "medium.en"
+WHISPER_MODEL = os.environ.get("VOXPROMPT_WHISPER_MODEL", "medium.en")
 WHISPER_DEVICE = "cuda"
 WHISPER_COMPUTE_TYPE = "float16"
 WHISPER_BEAM_SIZE = 5
 
 # Optimisation
-CLAUDE_MODEL = "claude-sonnet-4-20250514"
+CLAUDE_MODEL = os.environ.get("VOXPROMPT_CLAUDE_MODEL", "claude-sonnet-5-5")
 CLAUDE_MAX_TOKENS = 4096
 CLAUDE_TEMPERATURE = 0.3
 
